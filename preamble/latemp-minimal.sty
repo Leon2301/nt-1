@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latemp-minimal}[2025/11/08 Minimal Template]
+
+% German-specific
+\RequirePackage[ngerman]{babel}
+\RequirePackage[utf8]{inputenc}
+
+% basic math packages
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage[fixamsmath]{mathtools} % https://www.overleaf.com/learn/latex/Articles/Mathtools_-_for_beautiful_math
+\usepackage{physics} % https://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf
+
+% for easier access to set symbols
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mfk}{\mathfrak}
+\newcommand{\bN}{\mbb{N}}
+\newcommand{\bZ}{\mbb{Z}}
+\newcommand{\bQ}{\mbb{Q}}
+\newcommand{\bR}{\mbb{R}}
+\newcommand{\bC}{\mbb{C}}
+
+\newcommand{\h}{\hspace{10pt}} % equivalent to 3 spaces, there is also '\ ' and '\,'
+
+% example usage: ´\floor{a+0.45}´
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}

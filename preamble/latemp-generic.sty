@@ -1,0 +1,44 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latemp-generic}[2025/11/08 Generic Template]
+
+\RequirePackage{../preamble/latemp-minimal} % Include everything from minimal aswell
+
+% global style changes
+\RequirePackage{titlesec}
+\RequirePackage{geometry}
+\RequirePackage{fancyhdr}
+
+\pagestyle{empty}
+\titleformat*{\section}{\large\bfseries}
+\setlength{\parindent}{0pt}
+\geometry{
+  a4paper,
+  total={170mm,240mm},
+  left=20mm,
+  top=30mm,
+}
+
+% layout definition
+\newcommand{\nameA}{\texttt{Leon P. H. Mantey 26371417}}
+\newcommand{\hwnum}{\texttt{01}}
+\newcommand{\course}{\texttt{Introduction to Number Theory}}
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\nameA\\}
+\chead{\textbf{\Large Homework - \hwnum}}
+\rhead{\course\\\today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+% element specific style changes
+\RequirePackage{adjustbox}
+
+% graphics
+\RequirePackage{svg}
+\RequirePackage{tikz}
+\RequirePackage{caption}
+\RequirePackage{graphicx}
+\graphicspath{ {../images} }
