@@ -3,10 +3,86 @@
 \usepackage{../preamble/latemp-generic}
 
 \begin{document}
-Hello, \LaTeX!
 
-Hi 
-This page updates now automaticaly
+\Large Exercise 1 
+Spare change
+
+Imagine a world in which we have exactly two types of coin: 
+one worth $P$ cents, 
+one worth $Q$ cents, 
+such that $\gcd{P,Q}$. The goal of this
+problem is to bound how many values we cannot form using these coins. 
+
+
+(i) (15pts)
+Let us first consider $P = 5, Q = 13$. Determine in how many
+ways we can form 48 cents using these two coins.
+
+Hint: Consider the Diphantine equation $5u+13v=48$.
+What is the general form of the solution? We can't have a negative number of coins!
+
+solution: 
+
+we must find awnsers for the following equasion.
+\begin{align*}
+    48 = 5u + 13v \hspace{1cm} u, v \in \bN_{0} \\
+    u \leq 9 <\frac{48}{5}, v \leq 3 < \frac{48}{13}
+\end{align*}
+Now let us take Bézont's theorem and let 
+the euklid algorithm run backwards. so\dots
+\begin{align*}
+    \gcd(13,5): \\
+    13 = 2(5) + 3& \\
+    5 = 1(3) + 2& \\
+    3 = 1(2) + 1& 
+    \Rightarrow \gcd(13,5) = 1 \\
+    1 &= 3 - 1(2) \\
+                 2 &= 5 - 1(3) \\
+                 3 &= 13 - 2(5) \\
+    \Rightarrow
+    1 = 3 - 1(5- 1(3)) &= 2(3) - 1(5)\\
+   2(13 - 2(5)) - 1(5) &= 2(13) - 5(5) \\
+    1 = 2(13) - 5(5) \\
+        \Rightarrow u_{0} = 7 , v_{0} = 1
+\end{align*}
+so we get our first solution
+
+\begin{align*}
+    u = u_{0} + \frac{13}{gcd(13,5)} t , 
+    v = v_{0} - \frac{5}{gcd(13,5)} t , 
+    t \in \bZ
+\end{align*}
+
+(ii)  (20pts)
+Show that we can form 49, 50, 51, 52 cents using coins worth
+$P=5$ and $Q=13$. Here conclude that we can form any value 
+$N \geq 48$.
+
+(iii) (15pts)
+Can we form 47 with coins worth $P=5$ and $Q=13$?
+
+(iv) (20pts) 
+Define $g(P,Q) = PQ - P -Q$.
+Show that $g(P,Q)$ cannot be formed using coins worth $P$ and $Q$
+
+(v) (20pts)
+Suppose that $P<Q$. Show that, for $N = 1, 2, ... , P$, we can write
+\[
+N = aP + bQ
+\]
+with 
+\[
+0 < a < Q, b+P > 0.
+\]
+Hint: Start by showing we can find a solution with such an $a$
+and show that corresponding $b$ satisfies the given inequality. 
+Recall that $N-bQ > -bQ$
+
+
+(vi) (10pts)
+Hence conclude that $g(P,Q)$ is the largest value that cannot be 
+formed using coins with $P$ and $Q$.
+
 
 
 \end{document}
