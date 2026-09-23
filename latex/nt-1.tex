@@ -11,7 +11,7 @@ Spare change}}
 Imagine a world in which we have exactly two types of coin: 
 one worth $P$ cents, 
 one worth $Q$ cents, 
-such that $\gcd(P,Q)$. The goal of this
+such that $\gcd(P,Q) = 1$. The goal of this
 problem is to bound how many values we cannot form using these coins. 
 
 
@@ -75,12 +75,12 @@ So we just "move" the solution to find all awnsers in Range:
 \end{align*}
 So we only found one valid solution.
 
-(ii)  (20pts)
+\textbf{(ii)  (20pts)}
 Show that we can form 49, 50, 51, 52 cents using coins worth
 $P=5$ and $Q=13$. Here conclude that we can form any value 
 $N \geq 48$.
 
-solution: 
+\textbf{solution:}
 \begin{align*}
     49 = 2(5) + 3(13) \\
     50 = 10(5) + 0(13) \\
@@ -107,21 +107,50 @@ it does!
     k = 4 \Rightarrow 52 \equiv 2 \pmod{5} \\
 \end{align*}
 
-(iii) (15pts)
+\textbf{(iii) (15pts)}
 Can we form 47 with coins worth $P=5$ and $Q=13$?
 
-solution: 
+\textbf{solution:}
 no. 
 
 $47\%5 = 2$ and we saw in (ii) that we need at least $4(13)=52$
 four coins to form such a number. But 52 already overshouts 47 
 and negative coins are not allowed.
 
-(iv) (20pts) 
+\textbf{(iv) (20pts)}
 Define $g(P,Q) = PQ - P -Q$.
 Show that $g(P,Q)$ cannot be formed using coins worth $P$ and $Q$
 
-(v) (20pts)
+\textbf{solution:}
+So $\gcd(P,Q) = 1$ and I assume $P, Q \geq 1$.
+
+\begin{align}
+    PQ - P - Q &= aP + bQ , \h a,b \in \bN_{0}\\
+    PQ &= (a+1)P + (b+1)Q
+\end{align}
+\begin{align*}    
+    Q &= (a+1) + \frac{(b+1)Q}{P} 
+    &P &= \frac{(a+1)P}{Q}  + (b+1)
+    \\
+    Q - (a+1)&= \frac{(b+1)Q}{P} 
+    & P - (b+1)&= \frac{(a+1)P}{Q}
+\end{align*}
+and $\gcd(P,Q) = 1 \Rightarrow 
+\frac{Q}{P} \notin \bN_{0} \Rightarrow
+P|(b+1) \Leftrightarrow
+b+1 = kP$ with $k \in \bN$
+
+the same for $a+1 = lQ$ with $l \in \bN$
+
+Therefor: $k,l \geq 1$. 
+Combined with (2) we get:
+\begin{align*}
+    PQ = (lQ)P + (kP)Q = PQ(l+k) \\
+    (l + k) = 1 \geq 2 ???
+\end{align*}
+contradiction to $k,l \geq 1$. Therefor no solution.
+
+\textbf{(v) (20pts)}
 Suppose that $P<Q$. Show that, for $N = 1, 2, ... , P$, we can write
 \[
 N = aP + bQ
@@ -136,11 +165,14 @@ and show that corresponding $b$ satisfies the given inequality.
 Recall that $N-bQ > -bQ$
 }
 
+\textbf{solution:}
 
-(vi) (10pts)
+
+\textbf{(vi) (10pts)}
 Hence conclude that $g(P,Q)$ is the largest value that cannot be 
 formed using coins with $P$ and $Q$.
 
+\textbf{solution:}
 
 
 \end{document}
