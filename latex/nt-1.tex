@@ -4,55 +4,76 @@
 
 \begin{document}
 
-\Large Exercise 1 
-Spare change
+\Large
+\textbf{\underline{Exercise 1
+Spare change}}
 
 Imagine a world in which we have exactly two types of coin: 
 one worth $P$ cents, 
 one worth $Q$ cents, 
-such that $\gcd{P,Q}$. The goal of this
+such that $\gcd(P,Q)$. The goal of this
 problem is to bound how many values we cannot form using these coins. 
 
 
-(i) (15pts)
+\textbf{(i) (15pts)}
 Let us first consider $P = 5, Q = 13$. Determine in how many
 ways we can form 48 cents using these two coins.
 
+\textit{
 Hint: Consider the Diphantine equation $5u+13v=48$.
 What is the general form of the solution? We can't have a negative number of coins!
+}
 
-solution: 
+\textbf{solution:} 
 
 we must find awnsers for the following equasion.
 \begin{align*}
     48 = 5u + 13v \hspace{1cm} u, v \in \bN_{0} \\
-    u \leq 9 <\frac{48}{5}, v \leq 3 < \frac{48}{13}
+    \Rightarrow
+    0 \leq u \leq 9 = \lfloor \frac{48}{5} \rfloor, 
+    0 \leq v \leq 3 = \lfloor \frac{48}{13} \rfloor
 \end{align*}
 
-%Now let us take Bézont's theorem and let 
-%the euklid algorithm run backwards. so\dots
-%\begin{align*}
-%    \gcd(13,5): \\
-%    13 = 2(5) + 3& \\
-%    5 = 1(3) + 2& \\
-%    3 = 1(2) + 1& 
-%    \Rightarrow \gcd(13,5) = 1 \\
-%    1 &= 3 - 1(2) \\
-%                 2 &= 5 - 1(3) \\
-%                 3 &= 13 - 2(5) \\
-%   \Rightarrow
-%    1 = 3 - 1(5- 1(3)) &= 2(3) - 1(5)\\
-%   2(13 - 2(5)) - 1(5) &= 2(13) - 5(5) \\
-%    1 = 2(13) - 5(5) \\
-%        \Rightarrow u_{0} = 7 , v_{0} = 1
-%\end{align*}
-%so we get our first solution
+
+Now let us take Bézout's theorem and let 
+the euklid algorithm run backwards. so\dots
+\begin{align*}
+    \gcd(13,5): \\
+    13 = 2(5) + 3& \\
+    5 = 1(3) + 2& \\
+    3 = 1(2) + 1& 
+    \Rightarrow \gcd(13,5) = 1 \\
+    1 &= 3 - 1(2) \\
+                 2 &= 5 - 1(3) \\
+                 3 &= 13 - 2(5) \\
+   \Rightarrow
+    1 = 3 - 1(5- 1(3)) &= 2(3) - 1(5)\\
+   2(13 - 2(5)) - 1(5) &= 2(13) - 5(5) \\
+    1 = 2(13) - 5(5) \\
+    \\
+    48 = (2 \cdot 48)(13) + (-5 \cdot 48)(5)
+        &\Rightarrow u_{0} = -240 , v_{0} = 96
+\end{align*}
+so we get our first solution, but it is not in our range\dots
+So we just "move" the solution to find all awnsers in Range: 
 
 \begin{align*}
-    u = u_{0} + \frac{13}{gcd(13,5)} t , 
-    v = v_{0} - \frac{5}{gcd(13,5)} t , 
-    t \in \bZ
+    0 &\leq u \leq 9, 
+    &0 \leq v \leq 3 \\
+    u &= u_{0} + \frac{b}{gcd(a,b)} t , t \in \bZ
+    &v = v_{0} - \frac{a}{gcd(a,b)} t , 
+    t \in \bZ \\
+    u &= -240 + 13 t , t \in \bZ 
+    &v = 96 - 5 t , 
+    t \in \bZ \\
+    (t &= 19 \approx 18.46\dots = \frac{240}{13})
+    &(t = 19 \approx 19.2 = \frac{96}{5})\\
+    \Rightarrow
+    u &= \{ 7 \}
+    &\Rightarrow
+    v = \{ 1 \}
 \end{align*}
+So we only found one valid solution.
 
 (ii)  (20pts)
 Show that we can form 49, 50, 51, 52 cents using coins worth
@@ -75,15 +96,15 @@ Therefor any number
 S = \{ n \in \bN_{0} : n \%10 = 0 \lor 5 \} \\
 5|s , \forall s \in S
 \end{align*}
-So we just need to show that $(k13)\%5, k \in \bN_{0}$ gives us the last digits ${1,2,3,4}$
+So we just need to show that $k(13) \equiv \{1,2,3,4\} \pmod{5}, k \in \bN_{0}$
 while $k13 \leq 52$
 
 it does!
 \begin{align*}
-    k = 1 : 13\%5 = 3 \\
-    k = 2 : 26\%5 = 1 \\
-    k = 3 : 39\%5 = 4 \\
-    k = 4 : 52\%5 = 2 \\
+    k = 1 \Rightarrow 13 \equiv 3 \pmod{5} \\
+    k = 2 \Rightarrow 26 \equiv 1 \pmod{5} \\
+    k = 3 \Rightarrow 39 \equiv 4 \pmod{5} \\
+    k = 4 \Rightarrow 52 \equiv 2 \pmod{5} \\
 \end{align*}
 
 (iii) (15pts)
@@ -109,9 +130,11 @@ with
 \[
 0 < a < Q, b+P > 0.
 \]
+\textit{
 Hint: Start by showing we can find a solution with such an $a$
 and show that corresponding $b$ satisfies the given inequality. 
 Recall that $N-bQ > -bQ$
+}
 
 
 (vi) (10pts)
