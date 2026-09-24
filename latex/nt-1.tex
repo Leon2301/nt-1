@@ -97,14 +97,13 @@ S = \{ n \in \bN_{0} : n \%10 = 0 \lor 5 \} \\
 5|s , \forall s \in S
 \end{align*}
 So we just need to show that $k(13) \equiv \{1,2,3,4\} \pmod{5}, k \in \bN_{0}$
-while $k13 \leq 52$
-
+while $k13 \leq 52$.
 it does!
 \begin{align*}
     k = 1 \Rightarrow 13 \equiv 3 \pmod{5} \\
     k = 2 \Rightarrow 26 \equiv 1 \pmod{5} \\
     k = 3 \Rightarrow 39 \equiv 4 \pmod{5} \\
-    k = 4 \Rightarrow 52 \equiv 2 \pmod{5} \\
+    k = 4 \Rightarrow 52 \equiv 2 \pmod{5} 
 \end{align*}
 
 \textbf{(iii) (15pts)}
@@ -142,7 +141,7 @@ b+1 = kP$ with $k \in \bN$
 
 the same for $a+1 = lQ$ with $l \in \bN$
 
-Therefor: $k,l \geq 1$. 
+Because $a,b \geq 0$: $k,l \geq 1$. 
 Combined with (2) we get:
 \begin{align*}
     PQ = (lQ)P + (kP)Q = PQ(l+k) \\
@@ -174,13 +173,39 @@ Recall that $N-bQ > -bQ$
     1 = xP + yQ
 \end{align*}
 Because of Bézouts theorem there must exist an solution to this equation
-let us call it $(a_{0},b_{0})$.
+let us call it $(a_{0},b_{0}) := (Nx, Ny)$.
 To get all solutions we use:
 \begin{align*}
-    a = a_{0} + kQ, k \in \bZ \\
-    b = b_{0} - lP, l \in \bZ
+    a &= a_{0} + kQ, \h k \in \bZ \\
+    b &= b_{0} - lP, \h l \in \bZ
 \end{align*}
 
+% Part 1
+Therefor:
+\begin{align*}
+    a_{0} &\equiv a \pmod{Q}
+    % \\ b_{0} &\equiv b \pmod{P}
+\end{align*}
+So $a \in \{0,1,...,Q-1\}$. Now we need to show that $a \neq 0$: 
+\begin{align*}
+    aP + bQ = N \\
+    aP = N - bQ
+\end{align*}
+If $a := 0 \Rightarrow 0 = N-bQ \Rightarrow Q | N$
+That's condictionary to $1 \leq N \leq P < Q \Rightarrow a \neq 0$. 
+And we get \[0<a<Q\]
+
+% Part 2
+Let's conclude: $0 < P < Q$
+\begin{align*}
+    ab + bQ = N \Rightarrow \h aP &= N-bQ \\
+    N > 0 \Rightarrow \h N - bQ &> -bQ \\
+    0<a<Q \Rightarrow \h QP &> aP \\
+    \Rightarrow
+    QP > aP = N-bQ &> -bQ \\
+    bQ + QP &> 0 \\
+    b + P &> 0
+\end{align*}
 
 
 \textbf{(vi) (10pts)}
