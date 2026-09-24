@@ -213,7 +213,43 @@ Hence conclude that $g(P,Q)$ is the largest value that cannot be
 formed using coins with $P$ and $Q$.
 
 \textbf{solution:}
-
+So we just need to show that we can form every
+$N > g(P,Q)$ with $N = aP + bQ \h a,b \in \bN_{0}$.
+%If $N\geq aP$ we get:
+\begin{align*}
+    aP + bQ &= 1 = gcd(P,Q)\\
+    \Rightarrow
+    a_{1} P &\equiv 1 \pmod{Q} \\
+    P^{-1} &:= a_{1} \h P^{-1} \in \bN_{0} \\
+    a_{N}P &\equiv N(1) \pmod{Q} \\
+    a_{N} &\equiv N P^{-1} \pmod{Q} \\
+    \Rightarrow
+    \exists a_{N} &\in \{0,1,\dots,Q-1\}
+\end{align*}
+So we have our $a$ now we need $b \in \bN_{0}$.
+\begin{align*}
+    aP &\equiv N \pmod{Q} 
+    \Rightarrow
+    Q | (N- aP)\\
+    b &:= \frac{N - aP}{Q} \h b \in \bZ
+    %= \frac{bQ}{Q}
+\end{align*}
+If $N < aP$ we get:
+\begin{align*}
+    N \equiv aP \pmod{Q} \\
+    N \leq aP - Q
+\end{align*}
+We can conclude:
+\begin{align*}
+    a \in \{0,1,\dots,Q-1\}
+    \Rightarrow a \leq Q-1 \\
+    g(P,Q) = PQ - P - Q = (Q-1)P - Q
+    \geq aP - Q \geq N
+\end{align*}
+So every $N$ without a solution must be $N \leq g(P,Q)$
+that let us conclude: 
+\[N>g(P,Q)\] 
+always has a solution for $N=aP+bQ$ in $\bN_{0}$.
 
 \end{document}
 %%% Local Variables:
